@@ -1,0 +1,55 @@
+# RPi Pin Layout
+#                                                  BOARD EDGE
+# +-------------------------------------------------------------------------------------------------------------------+
+# |  5V  | 5V | GND | 14 | 15  | 18 | GND | 23 |  24  | GND | 25 | 8  |  7  | EEPROM | GND | 12 | GND | 16 | 20 | 21  |
+# +-------------------------------------------------------------------------------------------------------------------+
+# | 3.3V | 2  |  3  | 4  | GND | 17 | 27  | 22 | 3.3V | 10  | 9  | 11 | GND | EEPROM |  5  | 6  | 13  | 19 | 26 | GND |
+# +-------------------------------------------------------------------------------------------------------------------+
+#                                                  BOARD INTERIOR
+
+- name: Switch 1
+  <<: &switch_defaults
+    initial_state: TURN
+    event_edge: RISING
+    debounce_ms: 200
+    strobe_ms: 500
+  pin_enable: 14
+  pin_straight: 15
+  pin_turn: 18
+  pin_button: 23
+- name: Switch 2
+  <<: *switch_defaults
+  pin_enable: 25
+  pin_straight: 8
+  pin_turn: 7
+  pin_button: 24
+- name: Switch 3
+  <<: *switch_defaults
+  pin_enable: 16
+  pin_straight: 20
+  pin_turn: 21
+  pin_button: 12
+- name: Switch 4
+  <<: *switch_defaults
+  pin_enable: 2
+  pin_straight: 3
+  pin_turn: 4
+  pin_button: 17
+- name: Switch 5
+  <<: *switch_defaults
+  pin_enable: 0
+  pin_straight: 0
+  pin_turn: 0
+  pin_button: 0
+- name: Switch 6
+  <<: *switch_defaults
+  pin_enable: 0
+  pin_straight: 0
+  pin_turn: 0
+  pin_button: 0
+- name: Switch 7
+  <<: *switch_defaults
+  pin_enable: 0
+  pin_straight: 0
+  pin_turn: 0
+  pin_button: 0

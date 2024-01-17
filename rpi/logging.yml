@@ -1,0 +1,30 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: simple
+    level: INFO
+    stream: ext://sys.stdout
+  file:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filename: amherst_2005.log
+    maxBytes: 4096
+    backupCount: 3
+
+loggers:
+  amherst:
+    handlers: [ console, file ]
+    propagate: no
+
+root:
+  level: DEBUG
+  handlers: [ console ]
